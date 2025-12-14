@@ -1,1746 +1,417 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smartone Health Clinic - Pelayanan Kesehatan Terpercaya</title>
+    <title>Mediguard Connect - Siaga Saat Darurat, Setia Merawat Masa Tua</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Reset dan Base Styles */
-        :root {
-            --primary: #1a73e8;
-            --primary-light: #4285f4;
-            --primary-dark: #0d47a1;
-            --secondary: #34a853;
-            --accent: #ea4335;
-            --light-blue: #e8f0fe;
-            --white: rgb(255, 255, 255);
-            --light: #f8f9fa;
-            --light-gray: #f1f3f4;
-            --gray: #5f6368;
-            --dark: #202124;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05);
-            
-            /* WARNA GRADASI BARU YANG COCOK UNTUK APOTEK/RS - HANYA INI YANG DIUBAH */
-            --body-gradient-1: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
-            --body-gradient-2: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            --body-gradient-3: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            --body-gradient-4: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            --body-gradient-5: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-            --body-gradient-6: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-            --body-gradient-medical: linear-gradient(135deg, #f8fdff 0%, #e8f5e9 50%, #f1f8e9 100%);
-            --body-gradient-soft: linear-gradient(135deg, #ffffff 0%, #f5fbf8 50%, #fffbf5 100%);
-        }
-
-
-         body {
-            line-height: 1.6;
-            color: var(--dark);
-            background: var(--body-gradient-medical);
-            
-            background-attachment: fixed;
-            background-size: cover;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Spacing Utilities */
-        .section-spacing {
-            padding: 5rem 0;
-        }
-
-        .content-spacing > * {
-            margin-bottom: 1.5rem;
-        }
-
-        .content-spacing > *:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(26, 115, 232, 0.1);
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-icon {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            width: 45px;
-            height: 45px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            color: white;
-            font-size: 1.3rem;
-            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-            transition: width 0.3s;
-            border-radius: 10px;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark);
-            z-index: 1001;
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-light);
-        }
-        /* Biarkan section lainnya tetap seperti semula */
-        .hero {
-            background: linear-gradient(rgba(26, 115, 232, 0.85), rgba(13, 71, 161, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%231a73e8"/><path d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z" fill="%230d47a1"/><circle cx="200" cy="150" r="40" fill="%23ffffff" opacity="0.1"/><circle cx="400" cy="100" r="60" fill="%23ffffff" opacity="0.1"/><circle cx="800" cy="180" r="50" fill="%23ffffff" opacity="0.1"/><circle cx="1000" cy="120" r="30" fill="%23ffffff" opacity="0.1"/></svg>');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 12rem 0 8rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23f8f9fa"></path></svg>');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent) 0%, #d23c30 100%);
-            color: white;
-            padding: 0.9rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(234, 67, 53, 0.4);
-        }
-
-        .btn:hover:before {
-            left: 100%;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid white;
-            margin-left: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        /* Section Styles */
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 10px;
-        }
-
-        .section-title p {
-            color: var(--gray);
-            max-width: 700px;
-            margin: 2rem auto 0;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .about {
-        background: linear-gradient(135deg, #e8f5ff 0%, #c2e4ff 50%, #a9ddff 100% , rgb(87, 252, 197));
-            position: relative;
-        }
-
-        .about:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 10% 20%, rgba(52, 168, 83, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 90% 80%, rgba(26, 115, 232, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            padding: 1.5rem;
-            border-radius: 12px;
-            transition: all 0.3s;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-            border: 1px solid rgba(52, 168, 83, 0.1);
-            box-shadow: var(--shadow-light);
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9f0 100%);
-            box-shadow: var(--shadow);
-            border-color: rgba(52, 168, 83, 0.2);
-        }
-
-        .feature-icon {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1.2rem;
-            color: white;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
-        }
-
-        .feature-text h4 {
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .feature-text p {
-            color: var(--gray);
-            font-size: 0.95rem;
-        }
-
-        .about-image {
-            flex: 1;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            background: linear-gradient(135deg, var(--light-blue) 0%, #e3f2fd 100%);
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            flex-direction: column;
-            padding: 2rem;
-            text-align: center;
-            border: 2px solid rgba(26, 115, 232, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-image:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        .about-image i {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-image h4 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-image p {
-            position: relative;
-            z-index: 1;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .services {
-       background: linear-gradient(135deg, #e8f5ff 0%, #c2e4ff 50%, #a9ddff 100% , rgb(87, 252, 197));
-       position: relative;
-        }
-
-        .services:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(26, 115, 232, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(234, 67, 53, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8feff 100%);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .service-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 16px 0 0 16px;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            background: linear-gradient(135deg, var(--light-blue) 0%, rgba(232, 240, 254, 0.5) 100%);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.2);
-        }
-
-        .service-card h3 {
-            margin-bottom: 1rem;
-            color: var(--dark);
-            font-size: 1.5rem;
-        }
-
-        .service-card p {
-            color: var(--gray);
-            line-height: 1.7;
-        }
-
-        .doctors {
-        background: linear-gradient(135deg, #e8f5ff 0%, #c2e4ff 50%, #a9ddff 100% , rgb(87, 252, 197));
-        }
-
-        .doctors:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 40%, rgba(255, 193, 7, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 60%, rgba(234, 67, 53, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .doctors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .doctor-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fdf9 100%);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .doctor-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            background: linear-gradient(135deg, #ffffff 0%, #e8f5e9 100%);
-        }
-
-        .doctor-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            overflow: hidden;
-            border: 4px solid var(--light-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
-            color: var(--primary);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .doctor-image i {
-            font-size: 4rem;
-        }
-
-        .doctor-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .doctor-card .specialty {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--light-blue) 0%, rgba(232, 240, 254, 0.5) 100%);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-        .doctor-card p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-       .pricing {
-    background: linear-gradient(135deg, #e8f5ff 0%, #c2e4ff 50%, #a9ddff 100% , rgb(87, 252, 197));
-    padding: 5rem 0;
-    position: relative;
-}
-
-.pricing:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 40% 60%, rgba(158, 158, 158, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 60% 40%, rgba(66, 133, 244, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .price-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f5fbf8 100%);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            box-shadow: var(--shadow);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .price-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
-        }
-
-        .price-card.popular {
-            border: 2px solid var(--primary);
-            transform: scale(1.05);
-            background: linear-gradient(135deg, #ffffff 0%, #e8f0fe 100%);
-        }
-
-        .price-card.popular:hover {
-            transform: scale(1.05) translateY(-5px);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border-bottom-left-radius: 12px;
-            box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
-        }
-
-        .price-card h3 {
-            margin-bottom: 1rem;
-            color: var(--dark);
-            font-size: 1.5rem;
-        }
-
-        .price {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 1.5rem 0;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .price span {
-            font-size: 1rem;
-            color: var(--gray);
-            margin-top: 0.5rem;
-        }
-
-        .features {
-            list-style: none;
-            margin: 1.5rem 0 2rem;
-            flex-grow: 1;
-        }
-
-        .features li {
-            padding: 0.7rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-            padding-left: 1.5rem;
-            text-align: left;
-        }
-
-        .features li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-        }
-
-        .features li:last-child {
-            border-bottom: none;
-        }
-
-        .price-card .btn-container {
-            margin-top: auto;
-        }
-
-        .price-card .btn {
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-       .contact {
-    background: linear-gradient(135deg, #e8f5ff 0%, #c2e4ff 50%, #a9ddff 100%);
-    padding: 5rem 0;
-    position: relative;
-}
-
-
-        .contact:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 80%, rgba(26, 115, 232, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(52, 168, 83, 0.03) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .contact-content {
-            display: flex;
-            gap: 4rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-form {
-            flex: 1;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
-            transition: all 0.3s;
-            border: 1px solid rgba(232, 240, 254, 0.5);
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
-            border-color: rgba(26, 115, 232, 0.2);
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-right: 1.5rem;
-            min-width: 30px;
-            background: linear-gradient(135deg, var(--light-blue) 0%, rgba(232, 240, 254, 0.5) 100%);
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-text h3 {
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .contact-text p {
-            color: var(--gray);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.7rem;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid var(--light-gray);
-            border-radius: 8px;
-            font-size: 1rem;
-            background: var(--white);
-            transition: all 0.3s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
-            background: var(--white);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-.map {
-  background: linear-gradient(135deg, #e8f5ff 0%, #c2e4ff 50%, #a9ddff 100%);
-    padding: 4rem 0;
-    position: relative;
-}
-
-        .map:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 70%, rgba(52, 168, 83, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(26, 115, 232, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-      .map-container {
-    height: 450px;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.map-placeholder {
-    width: 90%;
-    max-width: 800px;
-    height: 400px;
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--dark);
-    text-align: center;
-    padding: 3rem 2rem;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(26, 115, 232, 0.1);
-    margin: 0 auto;
-}
-
-.map-placeholder i {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary);
-    background: linear-gradient(135deg, var(--light-blue) 0%, rgba(232, 240, 254, 0.5) 100%);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(26, 115, 232, 0.2);
-}
-
-.map-placeholder h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--dark);
-    font-weight: 600;
-    line-height: 1.3;
-    max-width: 600px;
-}
-
-.map-placeholder p {
-    font-size: 1.1rem;
-    color: var(--gray);
-    line-height: 1.6;
-    max-width: 600px;
-    margin-bottom: 0.5rem;
-}
-
-.map-placeholder p:last-of-type {
-    margin-bottom: 0;
-}
-
-.map-placeholder hr {
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-    border: none;
-    border-radius: 9px;
-    margin: 1.5rem auto;
-}
-
-@media (max-width: 768px) {
-    .map-placeholder {
-        width: 95%;
-        height: 350px;
-        padding: 2rem 1.5rem;
-    }
-    
-    .map-placeholder i {
-        font-size: 3rem;
-        width: 80px;
-        height: 80px;
-    }
-    
-    .map-placeholder h3 {
-        font-size: 1.5rem;
-    }
-    
-    .map-placeholder p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .map-placeholder {
-        height: 290px;
-        padding: 1.5rem 1rem;
-    }
-    
-    .map-placeholder i {
-        font-size: 2.5rem;
-        width: 70px;
-        height: 70px;
-        margin-bottom: 1rem;
-    }
-    
-    .map-placeholder h3 {
-        font-size: 1.3rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .map-placeholder p {
-        font-size: 0.95rem;
-    }
-}
-
-        footer {
-            background: linear-gradient(135deg, #1e88e5 0%, #0d47a1 100%);
-            color: white;
-            padding: 4rem 0 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-column {
-            flex: 1;
-            margin-right: 2rem;
-        }
-
-        .footer-column:last-child {
-            margin-right: 0;
-        }
-
-        .footer-column h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            position: relative;
-            display: inline-block;
-            color: #ffffff;
-        }
-
-        .footer-column h3:after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 3px;
-            background: linear-gradient(90deg, #bbdefb 0%, #ffffff 100%);
-            bottom: -8px;
-            left: 0;
-            border-radius: 10px;
-        }
-
-        .footer-column p {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .footer-links li i {
-            color: #e7e8e9;
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .footer-links a {
-            color: rgba(246, 246, 246, 0.9);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #3eb1b9;
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .social-icon:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 1200px) {
-            .container {
-                width: 95%;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .about-content, .contact-content {
-                flex-direction: column;
-                gap: 3rem;
-            }
-            
-            .footer-content {
-                flex-wrap: wrap;
-            }
-            
-            .footer-column {
-                flex: 1 0 50%;
-                margin-bottom: 2.5rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-spacing {
-                padding: 4rem 0;
-            }
-
-            .price-card.popular {
-                transform: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: linear-gradient(135deg, rgba(30, 136, 229, 0.98) 0%, rgba(13, 71, 161, 0.98) 100%);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                padding: 5rem 2rem 2rem;
-                box-shadow: var(--shadow);
-                z-index: 999;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 0;
-                width: 100%;
-                text-align: left;
-            }
-            
-            .nav-links a {
-                display: block;
-                padding: 1rem 0;
-                font-size: 1.1rem;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            }
-
-            .nav-links a:after {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: flex;
-            }
-            
-            .hero {
-                padding: 10rem 0 6rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .btn-outline {
-                margin-left: 0;
-                margin-top: 1rem;
-                display: inline-block;
-            }
-
-            .about-features {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .footer-column {
-                flex: 1 0 100%;
-            }
-
-            .section-spacing {
-                padding: 3.5rem 0;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero {
-                padding: 9rem 0 5rem;
-            }
-            
-            .section-spacing {
-                padding: 3rem 0;
-            }
-            
-            .services-grid, .pricing-grid, .doctors-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .price-card.popular:hover {
-                transform: translateY(-5px);
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-
-            .container {
-                width: 92%;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .hero {
-                padding: 8rem 0 4rem;
-            }
-
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .section-spacing {
-                padding: 2.5rem 0;
-            }
-        }
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-hospital"></i>
-                    </div>
-                    <div class="logo-text">Smartone Health Clinic</div>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#services">Layanan</a></li>
-                    <li><a href="#doctors">Dokter</a></li>
-                    <li><a href="#pricing">Biaya</a></li>
-                    <li><a href="#contact">Kontak</a></li>
-                </ul>
-                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-heartbeat"></i>
+                Mediguard Connect
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Beranda</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#prolanis">Prolanis Digital</a></li>
+                <li><a href="#education">Edukasi</a></li>
+                <li><a href="#pricing">Biaya</a></li>
+                <li><a href="#registration" class="nav-btn">Daftar Pasien</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section: The Emergency Hub -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content fade-in">
-                <h1>Kesehatan Keluarga Anda, Tanggung Jawab Kami</h1>
-                <p>Klinik Sehat Sentosa memberikan pelayanan kesehatan terbaik dengan dokter berpengalaman, fasilitas modern, dan perawatan yang manusiawi untuk seluruh keluarga.</p>
-                <div>
-                    <a href="#contact" class="btn">Buat Janji Temu</a>
-                    <a href="#services" class="btn btn-outline">Layanan Kami</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Siaga Saat <span class="highlight">Darurat</span>,<br>Setia Merawat Masa Tua.</h1>
+                <p class="tagline">Respon Ambulans < 15 Menit. Terhubung langsung ke IGD RS Sentosa. Kami siap siaga
+                        melindungi orang tua Anda.</p>
 
-    <!-- About Section -->
-    <section id="about" class="about section-spacing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Tentang Smartone Health Clinic </h2>
-                <p>Sebagai klinik kesehatan terpercaya sejak 2005, kami berkomitmen memberikan pelayanan medis terbaik dengan standar tinggi untuk kesehatan optimal masyarakat.</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text content-spacing">
-                    <h3>Komitmen Kami untuk Kesehatan Anda</h3>
-                    <p>Klinik Sehat Sentosa didirikan dengan visi menjadi penyedia layanan kesehatan primer terdepan yang mengutamakan kualitas, kepuasan pasien, dan kemudahan akses bagi seluruh masyarakat.</p>
-                    <p>Dengan fasilitas medis modern dan tim dokter yang berpengalaman, kami siap memberikan solusi kesehatan komprehensif untuk Anda dan keluarga.</p>
-                    
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Dokter Spesialis</h4>
-                                <p>Tim dokter spesialis dan umum berpengalaman di bidangnya.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-microscope"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Teknologi Modern</h4>
-                                <p>Peralatan medis terkini untuk diagnosis yang akurat.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Layanan 24 Jam</h4>
-                                <p>IGD tersedia 24 jam untuk penanganan darurat.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
+                        <div class="emergency-wrapper">
+                            <div class="pulse-ring"></div>
+                            <div class="pulse-ring"></div>
+                            <button class="btn btn-emergency">
                                 <i class="fas fa-ambulance"></i>
+                                EMERGENCY CALL
+                            </button>
+                            <div class="emergency-hotline">
+                                <i class="fas fa-phone-alt"></i> (0341) 555-999
                             </div>
-                            <div class="feature-text">
-                                <h4>Ambulans Siaga</h4>
-                                <p>Layanan ambulans 24 jam untuk keadaan darurat.</p>
+                        </div>
+            </div>
+
+            <div class="hero-visual">
+                <!-- Mockup Monitoring Panel -->
+                <div class="monitor-card">
+                    <div class="monitor-header">
+                        <div class="user-profile">
+                            <div class="avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <small style="color:var(--text-muted)">Pasien Terpantau</small>
+                                <div style="font-weight:600">Bpk. Syamsurizal (68 Th)</div>
+                            </div>
+                        </div>
+                        <div class="status-badge">
+                            <i class="fas fa-check-circle"></i> Stabil
+                        </div>
+                    </div>
+
+                    <div class="vitals-grid">
+                        <div class="vital-item">
+                            <span class="vital-label"><i class="fas fa-heartbeat pressure"></i> Tensi</span>
+                            <div class="vital-value">120/80</div>
+                            <small class="text-muted">mmHg</small>
+                        </div>
+                        <div class="vital-item">
+                            <span class="vital-label"><i class="fas fa-droplet text-danger"
+                                    style="color:var(--emergency)"></i> Gula Darah</span>
+                            <div class="vital-value">110</div>
+                            <small class="text-muted">mg/dL</small>
+                        </div>
+                        <div class="vital-item">
+                            <span class="vital-label"><i class="fas fa-pills" style="color:var(--warning)"></i> Jadwal
+                                Obat</span>
+                            <div class="vital-value" style="font-size:1rem; margin-top:0.25rem">Amlodipine 5mg</div>
+                            <small class="text-muted">08:00 WIB</small>
+                        </div>
+                        <div class="vital-item" style="background:var(--primary-light); color:white;">
+                            <span class="vital-label" style="color:rgba(255,255,255,0.8)">Jadwal Kontrol</span>
+                            <div class="vital-value" style="color:white; font-size:1.1rem">Senin, 12 Des</div>
+                            <small>Dr. Zackly Sp.PD</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section: The Merger -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Layanan Terpadu</h2>
+                <p>Menggabungkan kecepatan IGD, ketepatan Lab, dan kenyamanan Home Care.</p>
+            </div>
+
+            <div class="zone-grid">
+                <!-- Zona Kritis (Syamsurizal) -->
+                <div class="service-card zone-critical">
+                    <div class="card-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3>Zona Kritis (IGD)</h3>
+                    <p>Penanganan gawat darurat 24 jam dengan armada ambulans lengkap dan tim medis reaksi cepat.</p>
+                    <ul style="margin-top:1rem; font-size:0.9rem; color:var(--text-muted)">
+                        <li><i class="fas fa-check"></i> <strong>Respon < 15 Menit</strong>
+                        </li>
+                        <li><i class="fas fa-check"></i> Penanganan Jantung</li>
+                        <li><i class="fas fa-check"></i> Kamar ICU/ICCU</li>
+                    </ul>
+                </div>
+
+                <!-- Zona Rawat Jalan (Zachly) -->
+                <div class="service-card zone-outpatient">
+                    <div class="card-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Zona Rawat Jalan & Home Care</h3>
+                    <p>Layanan poliklinik spesialis dan kunjungan dokter ke rumah agar Lansia tidak perlu antre.</p>
+                    <ul style="margin-top:1rem; font-size:0.9rem; color:var(--text-muted)">
+                        <li><i class="fas fa-check"></i> <strong>Visite Dokter ke Rumah</strong></li>
+                        <li><i class="fas fa-check"></i> Lab & Rontgen</li>
+                        <li><i class="fas fa-check"></i> Apotek Antar-Obat</li>
+                    </ul>
+                </div>
+
+                <!-- Zona Administrasi (Abriysam) -->
+                <div class="service-card zone-admin">
+                    <div class="card-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Zona Administrasi</h3>
+                    <p>Transparansi biaya dan kemudahan pendaftaran paket Medical Checkup (MCU) Lansia.</p>
+                    <ul style="margin-top:1rem; font-size:0.9rem; color:var(--text-muted)">
+                        <li><i class="fas fa-check"></i> Paket MCU Lansia</li>
+                        <li><i class="fas fa-check"></i> Asuransi & BPJS</li>
+                        <li><i class="fas fa-check"></i> Laporan Rutin via WA</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prolanis Digital Section -->
+    <section id="prolanis" class="prolanis-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Prolanis Digital</h2>
+                <p>Pemantauan rutin Real-time ke HP Anak dengan Integrasi WhatsApp.</p>
+            </div>
+
+            <div class="dashboard-container">
+                <div class="dashboard-sidebar">
+                    <div class="card">
+                        <h4><i class="fas fa-bell"></i> Notifikasi Keluarga</h4>
+                        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1rem">
+                            Kami akan mengirim pesan WhatsApp otomatis kepada Wali/Anak jika Pasien lupa minum obat atau
+                            tensi naik drastis.
+                        </p>
+                        <div class="reminder-list">
+                            <div class="reminder-item taken">
+                                <span class="reminder-time">07:00</span>
+                                <span>Metformin 500mg</span>
+                                <i class="fas fa-check-circle" style="color:var(--success); margin-left:auto"></i>
+                            </div>
+                            <div class="reminder-item missed">
+                                <span class="reminder-time">13:00</span>
+                                <span>Vitamin C</span>
+                                <i class="fas fa-exclamation-circle"
+                                    style="color:var(--emergency); margin-left:auto"></i>
+                            </div>
+                        </div>
+                        <div
+                            style="background:#e3f2fd; padding:0.75rem; border-radius:8px; margin-top:1rem; font-size:0.85rem; color:var(--primary-dark)">
+                            <i class="fab fa-whatsapp"></i> <strong>Laporan Terkirim:</strong> <br>
+                            "Bpk. Hartono belum input obat siang. Mohon dicek."
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-main">
+                    <div class="graph-card">
+                        <div
+                            style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem">
+                            <h4 style="margin:0; line-height:1.2">Riwayat Tekanan Darah</h4>
+                            <span class="badge"
+                                style="background:var(--success); color:white; padding:0.25rem 0.6rem; border-radius:20px; font-size:0.75rem; white-space:nowrap; display:flex; align-items:center; gap:0.25rem">
+                                <span
+                                    style="position:relative; display:inline-block; width:8px; height:8px; background:white; border-radius:50%; animation:pulse 1s infinite"></span>
+                                Live Update
+                            </span>
+                        </div>
+
+                        <div class="chart-container">
+                            <!-- Mock Data with Animation Classes -->
+                            <div class="chart-container">
+                                <div class="bar-group">
+                                    <div class="bar" data-value="120/80" style="height: 60%;"></div>
+                                    <span class="day-label">Sen</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" data-value="118/79" style="height: 55%;"></div>
+                                    <span class="day-label">Sel</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" data-value="122/81" style="height: 65%;"></div>
+                                    <span class="day-label">Rab</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar alert" data-value="135/90" style="height: 85%;"></div>
+                                    <span class="day-label">Kam</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" data-value="120/82" style="height: 58%;"></div>
+                                    <span class="day-label">Jum</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" data-value="119/78" style="height: 50%;"></div>
+                                    <span class="day-label">Sab</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" data-value="121/80" style="height: 62%;"></div>
+                                    <span class="day-label">Min</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <i class="fas fa-clinic-medical"></i>
-                    <h4>Fasilitas Klinik Sehat Sentosa</h4>
-                    <p>Ruang perawatan yang nyaman dan steril dengan peralatan medis terbaru</p>
+            </div>
+    </section>
+
+    <!-- Education Section (Zackly) -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pusat Edukasi</h2>
+                <p>Informasi kesehatan terpercaya seputar Jantung & Diabetes.</p>
+            </div>
+
+            <div class="article-grid">
+                <div class="article-card">
+                    <div class="article-thumb"><i class="fas fa-heart"></i></div>
+                    <div class="article-content">
+                        <span class="category-tag">Jantung</span>
+                        <h3 style="font-size:1.25rem; margin-top:0.5rem">Gejala Awal Serangan Jantung</h3>
+                        <p style="font-size:0.9rem; color:var(--text-muted)">Kenali tanda-tanda nyeri dada yang menjalar
+                            ke punggung dan lengan...</p>
+                        <a href="#" style="color:var(--primary); font-weight:600; display:block; margin-top:1rem">Baca
+                            Selengkapnya &rarr;</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-thumb"><i class="fas fa-tint"></i></div>
+                    <div class="article-content">
+                        <span class="category-tag">Diabetes</span>
+                        <h3 style="font-size:1.25rem; margin-top:0.5rem">Menu Diet Sehat Penderita Gula</h3>
+                        <p style="font-size:0.9rem; color:var(--text-muted)">Panduan porsi makan 3J (Jumlah, Jadwal,
+                            Jenis) untuk mengontrol gula darah...</p>
+                        <a href="#" style="color:var(--primary); font-weight:600; display:block; margin-top:1rem">Baca
+                            Selengkapnya &rarr;</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-thumb"><i class="fas fa-walking"></i></div>
+                    <div class="article-content">
+                        <span class="category-tag">Lansia</span>
+                        <h3 style="font-size:1.25rem; margin-top:0.5rem">Senam Ringan Anti Stroke</h3>
+                        <p style="font-size:0.9rem; color:var(--text-muted)">Gerakan sederhana yang bisa dilakukan di
+                            rumah untuk melancarkan peredaran darah...</p>
+                        <a href="#" style="color:var(--primary); font-weight:600; display:block; margin-top:1rem">Baca
+                            Selengkapnya &rarr;</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services section-spacing">
+    <!-- Pricing Section (Abriysam) -->
+    <section id="pricing" class="pricing-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Layanan Kesehatan</h2>
-                <p>Kami menyediakan berbagai layanan kesehatan komprehensif dengan standar tertinggi untuk memenuhi kebutuhan medis Anda dan keluarga.</p>
+            <div class="section-header">
+                <h2>Paket Layanan</h2>
+                <p>Investasi terbaik untuk ketenangan pikiran Anda dan kesehatan Orang Tua.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
-                    <h3>Konsultasi Umum & Spesialis</h3>
-                    <p>Konsultasi dengan dokter umum dan spesialis untuk diagnosis dan penanganan berbagai penyakit dengan pendekatan personal.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-baby"></i></div>
-                    <h3>Kesehatan Ibu & Anak</h3>
-                    <p>Layanan kesehatan komprehensif untuk ibu hamil, persalinan, dan perawatan bayi serta anak dengan tim dokter anak berpengalaman.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-vial"></i></div>
-                    <h3>Laboratorium Medis</h3>
-                    <p>Pemeriksaan laboratorium lengkap dengan teknologi terbaru untuk diagnosis yang akurat dan hasil yang cepat.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-tooth"></i></div>
-                    <h3>Kesehatan Gigi & Mulut</h3>
-                    <p>Perawatan gigi menyeluruh termasuk konsultasi, pencabutan, penambalan, scaling, dan perawatan ortodonti.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-x-ray"></i></div>
-                    <h3>Radiologi & USG</h3>
-                    <p>Pemeriksaan radiologi dan USG dengan peralatan modern untuk diagnosis yang tepat dan akurat.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-procedures"></i></div>
-                    <h3>Rawat Inap</h3>
-                    <p>Fasilitas rawat inap yang nyaman dengan perawatan 24 jam oleh tenaga medis profesional.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Doctors Section -->
-    <section id="doctors" class="doctors section-spacing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Tim Dokter Kami</h2>
-                <p>Dokter-dokter profesional dan berpengalaman siap memberikan pelayanan kesehatan terbaik untuk Anda dan keluarga.</p>
-            </div>
-            <div class="doctors-grid">
-                <div class="doctor-card fade-in">
-                    <div class="doctor-image">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>Dr. Ahmad Wijaya, Sp.PD</h3>
-                    <div class="specialty">Dokter Spesialis Penyakit Dalam</div>
-                    <p>Berpengalaman lebih dari 15 tahun menangani berbagai penyakit dalam dengan pendekatan holistik.</p>
-                </div>
-                <div class="doctor-card fade-in">
-                    <div class="doctor-image">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>Dr. Sari Dewi, Sp.A</h3>
-                    <div class="specialty">Dokter Spesialis Anak</div>
-                    <p>Spesialis kesehatan anak dengan pendekatan ramah dan memahami kebutuhan tumbuh kembang anak.</p>
-                </div>
-                <div class="doctor-card fade-in">
-                    <div class="doctor-image">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>Dr. Budi Santoso, Sp.OG</h3>
-                    <div class="specialty">Dokter Spesialis Kandungan</div>
-                    <p>Ahli dalam kesehatan reproduksi wanita, kehamilan, persalinan, dan perawatan pasca melahirkan.</p>
-                </div>
-                <div class="doctor-card fade-in">
-                    <div class="doctor-image">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>Dr. Maya Sari, Sp.GK</h3>
-                    <div class="specialty">Dokter Spesialis Gizi</div>
-                    <p>Spesialis gizi klinik yang membantu perencanaan diet untuk kondisi medis tertentu dan kesehatan optimal.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing section-spacing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Layanan & Harga</h2>
-                <p>Berbagai layanan kesehatan dengan biaya yang transparan dan terjangkau untuk semua kalangan.</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="price-card fade-in">
-                    <h3>Konsultasi Dokter Umum</h3>
-                    <div class="price">Rp 50.000</div>
-                    <ul class="features">
-                        <li>Konsultasi lengkap</li>
-                        <li>Pemeriksaan fisik</li>
-                        <li>Resep obat</li>
-                        <li>Konsultasi follow-up</li>
+            <div class="pricing-table">
+                <div class="pricing-card">
+                    <h3>Basic Checkup</h3>
+                    <div class="price">Rp 150<span class="small">.000</span></div>
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1.5rem">Sekali
+                        kunjungan/Pemeriksaan</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Cek Gula Darah Sewaktu</li>
+                        <li><i class="fas fa-check"></i> Cek Tensi & Berat Badan</li>
+                        <li><i class="fas fa-check"></i> Konsultasi Dokter Umum</li>
                     </ul>
-                    <div class="btn-container">
-                        <a href="#contact" class="btn">Daftar Sekarang</a>
-                    </div>
+                    <button class="btn btn-pricing-outline">Pilih Paket</button>
                 </div>
-                <div class="price-card fade-in">
-                    <h3>Imunisasi Anak</h3>
-                    <div class="price">Rp 85.000</div>
-                    <ul class="features">
-                        <li>Konsultasi pra-imunisasi</li>
-                        <li>Vaksin berkualitas</li>
-                        <li>Pemantauan pasca-imunisasi</li>
-                        <li>Buku monitoring</li>
+
+                <div class="pricing-card featured">
+                    <h3>Membership Lansia</h3>
+                    <div class="price">Rp 250<span class="small">.000 / bln</span></div>
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1.5rem">Paket Lengkap + Laporan
+                        Rutin</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> <strong>Laporan PDF Mingguan ke WA</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>Gratis Antar Obat</strong> (Tanpa Antre)</li>
+                        <li><i class="fas fa-check"></i> 1x Visite Dokter ke Rumah</li>
+                        <li><i class="fas fa-check"></i> Panic Button Prioritas</li>
+                        <li><i class="fas fa-check"></i> 24 Jam Tele-Konsultasi</li>
                     </ul>
-                    <div class="btn-container">
-                        <a href="#contact" class="btn">Daftar Sekarang</a>
-                    </div>
-                </div>
-                <div class="price-card fade-in">
-                    <h3>Medical Check-up</h3>
-                    <div class="price">Rp 150.000</div>
-                    <ul class="features">
-                        <li>Pemeriksaan darah lengkap</li>
-                        <li>Tekanan darah</li>
-                        <li>Kadar gula darah</li>
-                        <li>Konsultasi hasil</li>
-                    </ul>
-                    <div class="btn-container">
-                        <a href="#contact" class="btn">Daftar Sekarang</a>
-                    </div>
+                    <button class="btn btn-pricing-primary">Daftar Member Sekarang</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section-spacing">
+    <!-- Registration Section -->
+    <section id="registration" class="registration-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Hubungi Kami</h2>
-                <p>Tim customer service kami siap membantu menjawab pertanyaan dan mengatur janji temu sesuai kebutuhan kesehatan Anda.</p>
+            <div class="section-header">
+                <h2>Pendaftaran Pasien Baru</h2>
+                <p>Isi formulir ringkas ini untuk menjadi member CareLink.</p>
             </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-text">
-                            <h3>Alamat Klinik</h3>
-                            <p>Jl. Kesehatan No. 123, Malang, Jawa Timur</p>
+
+            <div class="form-container">
+                <form id="regForm"
+                    onsubmit="event.preventDefault(); alert('Pendaftaran Berhasil! Tim kami akan menghubungi Anda via WhatsApp.');">
+                    <div class="form-group">
+                        <label class="form-label">Nama Lengkap Pasien</label>
+                        <input type="text" class="form-control" placeholder="Contoh: Bpk. Hartono" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Usia</label>
+                            <input type="number" class="form-control" placeholder="Contoh: 65" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Nomor WhatsApp Keluarga</label>
+                            <input type="tel" class="form-control" placeholder="08xxxxxx" required>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                        <div class="contact-text">
-                            <h3>Telepon</h3>
-                            <p>(0341) 567890 - Informasi & Pendaftaran</p>
-                            <p>(0341) 567891 - Unit Gawat Darurat</p>
-                        </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Paket yang Dipilih</label>
+                        <select class="form-control">
+                            <option>Membership Lansia (Rp 250k/bln)</option>
+                            <option>Basic Checkup (Rp 150k)</option>
+                        </select>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                            <p>info@kliniksehatsentosa.com</p>
-                            <p>pendaftaran@kliniksehatsentosa.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
-                        <div class="contact-text">
-                            <h3>Jam Operasional</h3>
-                            <p>Senin - Jumat: 07.00 - 21.00 WIB</p>
-                            <p>Sabtu - Minggu: 07.00 - 17.00 WIB</p>
-                            <p>Unit Gawat Darurat: 24 Jam</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nama Lengkap</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telepon</label>
-                            <input type="tel" id="phone" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Jenis Layanan</label>
-                            <select id="service" class="form-control" required>
-                                <option value="">Pilih Layanan</option>
-                                <option value="umum">Konsultasi Umum</option>
-                                <option value="spesialis">Konsultasi Spesialis</option>
-                                <option value="gigi">Kesehatan Gigi</option>
-                                <option value="lab">Pemeriksaan Laboratorium</option>
-                                <option value="usg">USG & Radiologi</option>
-                                <option value="lainnya">Lainnya</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Pesan</label>
-                            <textarea id="message" class="form-control" placeholder="Jelaskan keluhan atau kebutuhan kesehatan Anda..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Kirim Pesan</button>
-                    </form>
-                </div>
+
+                    <button type="submit" class="btn"
+                        style="background:var(--primary); color:white; width:100%; padding:1rem; font-weight:700">
+                        <i class="fas fa-paper-plane"></i> Kirim Pendaftaran
+                    </button>
+                    <p style="text-align:center; font-size:0.85rem; color:var(--text-muted); margin-top:1rem">
+                        <i class="fas fa-lock"></i> Data Anda aman dan terenkripsi.
+                    </p>
+                </form>
             </div>
         </div>
     </section>
 
-   <!-- Perbaikan untuk Map Section -->
-<section class="map">
-    <div class="container">
-        <div class="map-container">
-            <div class="map-placeholder">
-                <i class="fas fa-map-marked-alt"></i>
-                <h3>Lokasi Klinik Sehat Sentosa</h3>
-                <p>Jl. Keselatan No. 123, Malang, Jawa Timur</p>
-                <p>Lokasi strategis di pusat kota, mudah diakses dari berbagai wilayah</p>
-            </div>
+    <!-- CTA / Footer -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Siap Memberikan Perawatan Terbaik?</h2>
+            <p class="mb-2">Bergabunglah dengan ribuan keluarga yang telah mempercayakan kesehatan orang tuanya pada
+                kami.</p>
+            <a href="#registration" class="btn"
+                style="background:white; color:var(--primary); padding:1rem 2rem; border-radius:30px">Hubungi Kami
+                Sekarang</a>
         </div>
+    </section>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="heartbeat-loader">
+            <i class="fas fa-heartbeat"></i>
+        </div>
+        <p>Memuat Data Medis...</p>
     </div>
-</section>
 
-<!-- Perbaikan untuk Footer -->
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Klinik Sehat Sentosa</h3>
-                <p>Sebagai klinik kesehatan terpercaya, kami berkomitmen memberikan pelayanan medis terbaik dengan standar tinggi untuk kesehatan optimal masyarakat.</p>
-                <div class="social-links">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h3>Layanan</h3>
-                <ul class="footer-links">
-                    <li><a href="#services">Konsultasi Umum & Spesialis</a></li>
-                    <li><a href="#services">Kesehatan Ibu & Anak</a></li>
-                    <li><a href="#services">Laboratorium Medis</a></li>
-                    <li><a href="#services">Radiologi & USG</a></li>
-                    <li><a href="#services">Rawat Inap</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Link Cepat</h3>
-                <ul class="footer-links">
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#doctors">Dokter</a></li>
-                    <li><a href="#pricing">Biaya</a></li>
-                    <li><a href="#contact">Kontak</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Kontak</h3>
-                <ul class="footer-links">
-                    <li><i class="fas fa-map-marker-alt"></i> Jl. Keselatan No. 123, Malang</li>
-                    <li><i class="fas fa-phone-alt"></i> (0341) 567890</li>
-                    <li><i class="fas fa-envelope"></i> info@kliniksehatsentosa.com</li>
-                    <li><i class="fas fa-ambulance"></i> (0341) 567891 - UGD</li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2025 Klinik Sehat Sentosa. Hak Cipta Dilindungi. | Pelayanan Kesehatan Terpercaya Sejak 2005</p>
-        </div>
-    </div>
-</footer>
+    <!-- Floating Mobile Panic Button -->
+    <button class="floating-panic-btn btn-emergency">
+        <i class="fas fa-ambulance"></i> SOS
+    </button>
 
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-            this.innerHTML = document.querySelector('.nav-links').classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
+    <footer style="text-align:center; padding:2rem; background:var(--dark); color:white; margin-top:0">
+        <p>&copy; 2024 Mediguard Connect - Team CareLink.</p>
+    </footer>
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu after clicking a link
-                    document.querySelector('.nav-links').classList.remove('active');
-                    document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
-                }
-            });
-        });
-
-        // Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            
-            // Simple validation
-            if(name && email && phone && service && message) {
-                alert('Terima kasih, ' + name + '! Pesan Anda telah berhasil dikirim. Kami akan menghubungi Anda dalam 1x24 jam untuk konfirmasi janji temu.');
-                this.reset();
-            } else {
-                alert('Harap lengkapi semua field sebelum mengirim pesan.');
-            }
-        });
-
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if(window.scrollY > 100) {
-                header.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.98) 100%)';
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%)';
-                header.style.boxShadow = 'var(--shadow)';
-            }
-        });
-
-        // Fade in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = function() {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.style.opacity = "1";
-                    element.style.transform = "translateY(0)";
-                }
-            });
-        };
-        
-        // Set initial state for fade elements
-        fadeElements.forEach(element => {
-            element.style.opacity = "0";
-            element.style.transform = "translateY(20px)";
-            element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-        });
-        
-        window.addEventListener('scroll', fadeInOnScroll);
-        // Initial check in case elements are already in view
-        fadeInOnScroll();
-    </script>
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>
