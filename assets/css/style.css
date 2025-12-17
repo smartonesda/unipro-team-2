@@ -196,8 +196,8 @@
     }
 
     100% {
-        width: 160%;
-        height: 180%;
+        width: 110%;
+        height: 150%;
         opacity: 0;
     }
 }
@@ -1148,20 +1148,21 @@ footer {
         padding: 0 1.5rem;
     }
 
+    /* 
     .hero-visual {
         order: -1;
         /* Show visual first on mobile/tablet */
-    }
+}
 
-    .hero-text h1 {
-        font-size: 2.8rem;
-    }
+*/ .hero-text h1 {
+    font-size: 2.8rem;
+}
 
-    .nav-links {
-        display: none;
-    }
+.nav-links {
+    display: none;
+}
 
-    /* Hide nav */
+/* Hide nav */
 }
 
 @media (max-width: 768px) {

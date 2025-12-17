@@ -25,6 +25,12 @@ Web ini dilengkapi dengan fitur-fitur interaktif modern tanpa menggunakan framew
 *   **Responsive & Fluid:** Layout yang menyesuaikan otomatis dari Desktop hingga layar HP terkecil.
 *   **Heartbeat Preloader:** Animasi loading detak jantung saat pertama kali membuka web.
 
+### 🧠 4. Edukasi Interaktif & Visual (New!)
+Halaman artikel edukasi tidak lagi membosankan dengan tambahan visualisasi CSS murni:
+*   **Heart Attack Simulation:** Visualisasi jantung berdenyut yang merespons *hover* mouse untuk simulasi takikardia (detak cepat), lengkap dengan *pain points*.
+*   **Interactive Diet Plate:** Model "Piring Makanku" interaktif untuk diabetes, membagi porsi Sayur (50%), Karbo (25%), dan Lauk (25%) dengan efek zoom yang jelas.
+*   **Animated Exercise Guide:** Ikon animasi bergerak (stretching & walking) pada panduan senam stroke untuk mempermudah pemahaman gerakan.
+
 ---
 
 ## 🛠️ Teknologi yang Digunakan
@@ -57,6 +63,9 @@ unipro-team-2/
 │   │   └── main.js         # Core Logic (Sound, Animation, Data)
 │   └── images/             # Aset gambar
 ├── index.html              # Halaman Utama (Single Page App)
+├── gejala-awal-serangan-jantung.html   # Artikel: Jantung
+├── menu-diet-sehat-penderita-gula.html # Artikel: Diabetes
+├── senam-ringan-anti-stroke.html       # Artikel: Stroke
 └── README.md               # Dokumentasi Proyek
 ```
 
