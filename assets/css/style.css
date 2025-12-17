@@ -1227,6 +1227,15 @@ footer {
     .floating-panic-btn {
         display: flex !important;
     }
+
+    .article-detail-container {
+        padding: 0;
+        padding-bottom: 2rem;
+    }
+
+    .article-content {
+        padding: .5rem
+    }
 }
 
 /* Preloader Styles */
