@@ -8,9 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Preloader Logic
     window.addEventListener('load', () => {
         const preloader = document.getElementById('preloader');
-        setTimeout(() => {
-            preloader.classList.add('loaded');
-        }, 1500); // Show "medical" load for 1.5s
+        if (preloader) {
+            setTimeout(() => {
+                preloader.classList.add('loaded');
+            }, 1500); // Show "medical" load for 1.5s
+        }
     });
 
     // 1. Emergency Simulation with SOUND
@@ -123,6 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-links a');
 
     function updateActiveLink() {
+        // If we are not on the homepage (no #home section), do not run scrollspy.
+        // This preserves the manually set 'active' class on article pages.
+        if (!document.querySelector('#home')) return;
+
         let current = '';
 
         sections.forEach(section => {

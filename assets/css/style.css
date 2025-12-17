@@ -645,6 +645,286 @@ footer {
     font-weight: 600;
 }
 
+/* --- Article Interactive Visuals --- */
+
+/* 1. Heart Attack: Pulsing Heart */
+.visual-heart-container {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.visual-heart {
+    font-size: 5rem;
+    color: var(--emergency);
+    animation: irregular-beat 2s infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 59, 48, 0.5));
+    cursor: help;
+}
+
+.visual-heart:hover {
+    animation: rapid-beat 0.5s infinite;
+    /* Simulates panic/attack on hover */
+}
+
+.pain-point {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: var(--warning);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--warning);
+    animation: pain-flash 1s infinite alternate;
+}
+
+@keyframes irregular-beat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.1);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.2);
+    }
+
+    /* Irregular rhythm */
+    50% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rapid-beat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes pain-flash {
+    from {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* 2. Diabetes: Interactive Plate */
+.visual-plate-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.plate {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 8px solid white;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    background: white;
+}
+
+.plate-section {
+    position: absolute;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.plate-section:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+    /* Highlight section */
+    z-index: 10;
+}
+
+/* 50% Veggies (Half Circle) */
+.plat-veg {
+    width: 50%;
+    height: 100%;
+    left: 0;
+    background: var(--success);
+    /* Green */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    /* Simple half fill for demo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 25% Carbs */
+.plat-carb {
+    width: 50%;
+    height: 50%;
+    top: 0;
+    right: 0;
+    background: var(--warning);
+    /* Yellow/Orange */
+}
+
+/* 25% Protein */
+.plat-prot {
+    width: 50%;
+    height: 50%;
+    bottom: 0;
+    right: 0;
+    background: var(--emergency);
+    /* Red/Meat color */
+}
+
+/* 3. Stroke: Exercise Anim */
+.visual-exercise-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+}
+
+.exercise-icon {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--primary);
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.anim-stretch i {
+    animation: stretch-side 2s infinite ease-in-out;
+}
+
+.anim-walk i {
+    animation: walk-bounce 1s infinite;
+}
+
+@keyframes stretch-side {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-15deg);
+    }
+
+    75% {
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes walk-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Article Detail Styles */
+.article-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    /* Slightly more opaque for reading */
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: var(--shadow-lg);
+    margin-top: -6rem;
+    /* Overlap hero */
+    position: relative;
+    z-index: 10;
+}
+
+.article-hero {
+    padding: 10rem 0 8rem;
+    text-align: center;
+    background: radial-gradient(circle at 50% 50%, rgba(212, 233, 255, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.article-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-lead);
+}
+
+.article-content h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.article-content ul,
+.article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}
+
+.article-content img {
+    border-radius: var(--radius-md);
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+}
+
 /* Pricing Section (Abriysam) */
 .pricing-section {
     padding: 6rem 0;
