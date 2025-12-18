@@ -81,6 +81,30 @@ document.addEventListener('DOMContentLoaded', () => {
         oscillator.stop(now + 2.5);
     }
 
+    // --- Custom Emergency Modal Logic ---
+    const emergencyModal = document.getElementById('emergencyModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    function showEmergencyModal() {
+        if (emergencyModal) emergencyModal.classList.add('active');
+    }
+
+    function hideEmergencyModal() {
+        if (emergencyModal) emergencyModal.classList.remove('active');
+    }
+
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', hideEmergencyModal);
+    }
+
+    if (emergencyModal) {
+        emergencyModal.addEventListener('click', (e) => {
+            if (e.target === emergencyModal) {
+                hideEmergencyModal();
+            }
+        });
+    }
+
     emergencyBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             // Play Sound!
@@ -101,7 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
 
             setTimeout(() => {
-                alert(`🚑 STATUS DARURAT TERKONFIRMASI! \n\nLokasi: Terdeteksi\nEstimasi Ambulans: 8 Menit\nStatus: Driver sedang meluncur.`);
+                // REPLACED: alert() with custom modal
+                showEmergencyModal();
 
                 if (!btn.classList.contains('floating-panic-btn')) {
                     btn.innerHTML = '<i class="fas fa-check"></i> AMBULANS OTW';

@@ -417,6 +417,33 @@
         <p>&copy; 2024 Mediguard Connect - Team CareLink.</p>
     </footer>
 
+    <!-- Emergency Modal -->
+    <div id="emergencyModal" class="emergency-modal-overlay">
+        <div class="emergency-modal">
+            <div class="modal-icon">
+                <i class="fas fa-ambulance pulse-icon"></i>
+            </div>
+            <h2 class="modal-title">STATUS DARURAT TERKONFIRMASI!</h2>
+            <div class="modal-body">
+                <div class="modal-info-row">
+                    <span class="info-label">Lokasi:</span>
+                    <span class="info-value">Terdeteksi (Jl. Mawar No. 45)</span>
+                </div>
+                <div class="modal-info-row">
+                    <span class="info-label">Estimasi Ambulans:</span>
+                    <span class="info-value text-danger">8 Menit</span>
+                </div>
+                <div class="modal-info-row">
+                    <span class="info-label">Status Driver:</span>
+                    <span class="info-value text-success">Sedang Meluncur</span>
+                </div>
+                <p class="modal-note">Tim medis kami sudah menerima sinyal darurat Anda. Mohon tetap tenang dan jangan
+                    matikan panggilan.</p>
+            </div>
+            <button id="closeModalBtn" class="btn btn-close-modal">Tutup</button>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
 </body>
